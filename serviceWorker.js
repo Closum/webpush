@@ -1,5 +1,3 @@
-// importScripts("https://0128343745cf.ngrok-free.app/webroot/serviceWorker.js");
-
 self.addEventListener('push', function (event) {
     if (!(self.Notification && self.Notification.permission === 'granted')) {
         return;
@@ -36,7 +34,7 @@ self.addEventListener('push', function (event) {
 
         // Send delivery callback after showing notification
         try {
-            await fetch("https://0128343745cf.ngrok-free.app/callbacks/web-push/callbacks/", {
+            await fetch("https://app.closum.com/callbacks/web-push/callbacks/", {
                 method: "POST",
                 headers: {
                     "Content-Type": "application/json"
@@ -73,7 +71,7 @@ self.addEventListener('notificationclick', function (event) {
     event.waitUntil(
         (async () => {
             try {
-                await fetch("https://0128343745cf.ngrok-free.app/callbacks/web-push/callbacks/", {
+                await fetch("https://app.closum.com/callbacks/web-push/callbacks/", {
                     method: "POST",
                     headers: {
                         "Content-Type": "application/json"
